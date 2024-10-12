@@ -1,0 +1,31 @@
+main budlers :
+1.parcel: simple and easy to use
+2.vite  optimised buildf framework
+
+export default{
+    key:value,
+    ...
+
+}
+
+import React from 'reat' this gives error as browser cant understand the node moduels so we use dev tools parcel to solve this issue.
+node modules are meant to serve the server 
+//steps
+1.npx parcel <file name>  index.html
+2.it generate a dist folder in which we have index.html ,and two index.....js basically two files for source mapping and js code like the way babel used to do
+
+we can observe that the code in dist/index.js  hasw react code and 
+
+Parcel features:
+hot reloading with addede  code initiallly if any changes browwser reload all file but later it support hotrea
+this hot module replacement make changes in .js withoput reloading 
+
+if (module.hot) {
+  module.hot.accept();
+}
+
+
+by changing entry point in package.json  we can build the project whhich gives all the htmla and index.js i dist folder in minified format for production
+
+
+

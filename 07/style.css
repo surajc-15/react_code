@@ -1,0 +1,27 @@
+.card {
+  max-width: 200px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 6%;
+}
+
+.card img {
+  width: 100%;
+}
+.card h2 {
+  color: rgb(62, 62, 128);
+  margin: 1;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.container {
+    margin:auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 3 columns */
+  grid-template-rows: repeat(4, 1fr); /* 4 rows */
+  gap: 10px; /* space between grid items */
+  width: 90%;
+  max-width: 800px;
+}
