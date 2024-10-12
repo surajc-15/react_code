@@ -84,15 +84,15 @@ root.render(
 */
 
 //First letter should be capital for type
-root.render(
-  <Cards
-    key="1"
-    price="1000"
-    brand="Meghanas"
-    title="food"
-    image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjAMLedZRk2kc2Gg7NC0jRaHIjxa1-vf-b_A&s"
-  />
-);
+// root.render(
+//   <Cards
+//     key="1"
+//     price="1000"
+//     brand="Meghanas"
+//     title="food"
+//     image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjAMLedZRk2kc2Gg7NC0jRaHIjxa1-vf-b_A&s"
+//   />
+// );
 
 console.log(
   <Cards
@@ -125,6 +125,30 @@ fetch("https://dummyjson.com/products")
   });
 
   */
+
+//use fetch to get data from public api
+console.log("extracting data from api");
+fetch("https://dummyjson.com/products")
+  .then((res) => res.json())
+  .then((data) => {
+    console.log(data);
+    root.render(
+      <div className="container">
+        {data.products.map((product) => {
+          return (
+            <Cards
+              image={product.thumbnail}
+              key={product.id}
+              title={product.title}
+              brand={product.brand}
+              price={product.price}
+            />
+          );
+        })}
+      </div>
+    );
+  });
+
 if (module.hot) {
   module.hot.accept();
 }
