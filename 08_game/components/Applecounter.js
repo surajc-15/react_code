@@ -5,10 +5,10 @@ import LeftArrow from "../assets/leftarrow.png";
 import RightArrow from "../assets/rightarrow.png";
 import Basket from "./Basket";
 const root = createRoot(document.getElementById("root"));
+const totalApplecount = 10;
+let rightApplecount = 0;
+let leftAppleCount = totalApplecount - rightApplecount;
 export default function Applecounter() {
-  const totalApplecount = 10;
-  let rightApplecount = 0;
-  let leftAppleCount = totalApplecount - rightApplecount;
   return (
     <>
       <section className="mainapp">
@@ -18,8 +18,12 @@ export default function Applecounter() {
           id={1}
           clickHandler={() => {
             console.log("left");
-            leftAppleCount++;
-            rightApplecount--;
+            if (rightApplecount - 1 >= 0) {
+              leftAppleCount++;
+              rightApplecount--;
+            } else {
+              alert("no more apples left");
+            }
             console.log(leftAppleCount, rightApplecount);
             root.render(<Applecounter />);
           }}
@@ -29,8 +33,13 @@ export default function Applecounter() {
           id={2}
           clickHandler={() => {
             console.log("right");
-            leftAppleCount--;
-            rightApplecount++;
+
+            if (leftAppleCount - 1 >= 0) {
+              leftAppleCount--;
+              rightApplecount++;
+            } else {
+              alert("no more apples left");
+            }
             console.log(leftAppleCount, rightApplecount);
             root.render(<Applecounter />);
           }}
