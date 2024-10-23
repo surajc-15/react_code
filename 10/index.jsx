@@ -1,6 +1,33 @@
-import {createRoot} from 'react-dom/client'
-import App from './App'
+import { createRoot } from "react-dom/client";
+import App from "./App";
+import Contact from "./components/Contact";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Header from "./components/Header";
+import ErrorPage from "./components/error-page";
+import Home from "./components/Home";
+import CountryDetail from "./components/CountryDetail";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
 
-const root = createRoot(document.querySelector('#root'))
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/country",
+        element: <CountryDetail />,
+      },
+    ],
+  },
+]);
 
-root.render(<App />)
+const root = createRoot(document.querySelector("#root"));
+root.render(<RouterProvider router={router} />);
